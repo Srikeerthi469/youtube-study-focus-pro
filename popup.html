@@ -17,6 +17,7 @@
     .time-input { width: 45px; background: #222; border: 1px solid #444; color: white; border-radius: 3px; padding: 2px 4px; text-align: center; }
   </style>
 </head>
+
 <body>
   <h3>Study Focus Pro</h3>
   
@@ -32,13 +33,18 @@
     </div>
   </div>
 
-  <!-- Customized Pomodoro Timer Section -->
+  <!-- Pomodoro Timer Section -->
   <div class="section" style="border: none;">
     <div class="input-container">
       <label for="minutesInput">Set Study Minutes:</label>
       <input type="number" id="minutesInput" class="time-input" value="25" min="1" max="180">
     </div>
+
     <div class="timer-display" id="timerDisplay">25:00</div>
+
+    <!-- 🔥 NEW (hidden sync state - NO UI CHANGE) -->
+    <div id="syncState" style="display:none;"></div>
+
     <div class="btn-container">
       <button id="startBtn">Start</button>
       <button id="resetBtn">Reset</button>
