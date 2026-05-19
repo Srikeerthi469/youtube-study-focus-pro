@@ -1,3 +1,4 @@
+
 function applyFocusSettings() {
   chrome.storage.local.get(['hideFeed', 'hideShorts'], (settings) => {
     
@@ -24,17 +25,12 @@ function applyFocusSettings() {
         shortsStyle = document.createElement('style');
         shortsStyle.id = 'focus-block-shorts';
         shortsStyle.textContent = `
-          /* Left navigation layout tags matching Shorts paths */
           ytd-guide-entry-renderer a[href*="/shorts"],
           ytd-mini-guide-entry-renderer[aria-label*="Shorts"],
           ytd-guide-entry-renderer[is-shorts],
           tp-yt-paper-item a[href*="/shorts"],
-          
-          /* Dynamic Attribute target names filtering */
           [title*="Shorts"], 
           [aria-label*="Shorts"],
-          
-          /* In-feed structural reels shelves modules completely off */
           ytd-reel-shelf-renderer,
           ytd-rich-shelf-renderer[is-shorts] { 
             display: none !important; 
@@ -49,10 +45,62 @@ function applyFocusSettings() {
   });
 }
 
-// Run functions immediately on system state load
+// Run immediately
 applyFocusSettings();
 
-// Listen for updates from real-time dynamic configurations switches
+// Listen for changes
 chrome.storage.onChanged.addListener(() => {
   applyFocusSettings();
 });
+
+
+/* =====================================================
+   ⏱ NEW FEATURE: TIMER-BASED STUDY MODE GATE
+   ===================================================== */
+
+function applyTimerGate() {
+  chrome.storage.local.get(['timerActive'], (res) => {
+
+    const isActive = res.timerActive;
+
+    let gate = document.getElementById('focus-timer-gate');
+
+    if (!isActive) {
+      if (!gate) {
+        gate = document.createElement('div');
+        gate.id = 'focus-timer-gate';
+
+        gate.style.position = 'fixed';
+        gate.style.top = '0';
+        gate.style.left = '0';
+        gate.style.width = '100%';
+        gate.style.height = '100%';
+        gate.style.background = '#000';
+        gate.style.color = '#fff';
+        gate.style.zIndex = '999999';
+        gate.style.display = 'flex';
+        gate.style.alignItems = 'center';
+        gate.style.justifyContent = 'center';
+        gate.style.fontSize = '20px';
+        gate.style.flexDirection = 'column';
+
+        gate.innerHTML = `
+          <div>🚫 Study Mode Active</div>
+          <div style="font-size:14px; margin-top:10px;">
+            Start timer to unlock YouTube
+          </div>
+        `;
+
+        document.body.appendChild(gate);
+      }
+    } else {
+      if (gate) {
+        gate.remove();
+      }
+    }
+
+  });
+}
+
+// Run timer gate every 2 seconds
+setInterval(applyTimerGate, 2000);
