@@ -19,3 +19,7 @@ Want to run this project locally on your machine? Follow these steps:
 3. Toggle on **Developer mode** in the top-right corner.
 4. Click **Load unpacked** in the top-left corner.
 5. Select the extracted project root folder containing the `manifest.json` file.
+
+## Disclaimer
+This project is not affiliated with, endorsed by, or sponsored by YouTube or Google.  
+YouTube is a trademark of Google LLC.
