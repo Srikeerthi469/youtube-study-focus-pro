@@ -3,10 +3,32 @@
 A lightweight Google Chrome extension built with Manifest V3 designed to eliminate algorithmic distractions on YouTube and help students stay focused.
 
 ## ✨ Features
-- **Hide Home Feed**: Dynamically blocks the homepage video recommendation grid.
-- **Remove Shorts Button**: Completely strips the sticky Shorts tabs and shelves out of view.
-- **Customizable Pomodoro Timer**: Set your preferred study duration and manage deep focus sessions directly from the extension panel.
-- **Persistent State Control**: Settings and timer tracking states persist across active browser sessions using Chrome Storage.
+
+### 🎯 Distraction-Free Learning
+- Hides YouTube Home Feed to reduce unnecessary distractions.
+- Blocks YouTube Shorts for better focus during study sessions.
+
+### ⏱️ Smart Study Timer
+- Built-in Pomodoro-style study timer.
+- Users can set custom study durations.
+- Start and reset timer controls.
+
+### 🖱️ Draggable Floating Widget
+- Floating timer widget that can be moved anywhere on the screen.
+- Stays visible while watching educational content.
+
+### 🎉 Focus Completion Notification
+- Displays a motivational message when a study session is completed.
+- Encourages consistent learning habits.
+
+### 🎨 User-Friendly Interface
+- Clean and minimal design.
+- Easy-to-use extension popup.
+
+### 🚀 Productivity Enhancement
+- Helps students stay focused on learning content.
+- Reduces time wasted on recommendations and Shorts.
+- Creates a more productive YouTube study environment.
 
 ## 🛠️ Tech Stack
 - **Frontend**: HTML5, CSS3 (DOM CSS Injection Layouts)
